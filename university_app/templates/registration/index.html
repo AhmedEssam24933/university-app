@@ -1,0 +1,70 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University</title>
+</head>
+<body>
+    <div style="text-align: center;"><h1>موقع إدارة الجامعة</h1></div>
+    <br><br>
+        <form action="{% url 'new_data' %}" method="POST">   
+            {% csrf_token %}    
+            <div class="container" style="display:flex; flex-direction: column; align-items: center; text-align: right">
+
+            <div class="item" style="padding-bottom: 5%;"><label for="firstname"><b>First Name</b></label>
+              <input type="text" name="firstname" id="firstname"></div>
+
+            <div class="item" style="padding-bottom: 5%;"><label for="lastname"><b>Last Name</b></label>
+                <input type="text" name="lastname" id="lastname"></div>
+
+            <div class="item" style="padding-bottom: 5%;"><label for="email"><b>Email</b></label>
+                <input type="email" name="email" id="email"></div>
+
+            <div class="item" style="padding-bottom: 5%;"><label for="dateofbirth"><b>Date of Birth</b></label>
+                <input type="date" name="dateofbirth" id="dateofbirth"></div>
+
+            <div class="item" style="padding-bottom: 5%;"><label for="address"><b>Address</b></label>
+                <input type="text" name="address" id="address"></div>
+
+            <div class="item" style="padding-bottom: 5%;"><label for="city"><b>City</b></label>
+              <input type="text" name="city" id="city"></div>
+
+              <div class="item" style="padding-bottom: 5%;"><label for="zipcode"><b>Zip Code</b></label>
+              <input type="text" name="zipcode" id="zipcode"></div>
+
+              <div class="item" style="padding-bottom: 5%;"><label for="phonenumber"><b>Phone Number</b></label>
+              <input type="tel" name="phonenumber" id="phonenumber"></div>
+
+              <div class="item" style="padding-bottom: 5%;"><label for="major"><b>Major</b></label>
+                <input type="text" name="major" id="major"></div>
+
+                <div class="item" style="padding-bottom: 5%;"><label for="gpa"><b>GPA:</b></label>
+                <input type="number" name="gpa" id="gpa" min="0" max="4" step="0.01" required></div>
+
+              <div class="item" style="padding-bottom: 5%;"><label for="graduationdate"><b>Graduation Date</b></label>
+              <input type="date" name="graduationdate" id="graduationdate"></div>
+          
+              <div style="padding-left: 3%;"><button type="submit" id ="my_button" style="width: 200px;">Add</button></div>
+              </div>
+          </form>
+
+          <div class="col-md-12 col-centered mt-3" style="text-align: center; margin-top:5%;">
+            <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+          </div>
+
+          <script type="text/javascript" src="{% static 'js/main.js' %}"></script> 
+          <!-- $.ajax({
+            method: 'POST',
+            url: 'your_endpoint',
+            data: your_data_object,
+            dataType: 'json', // If you are using an API RestFul
+            success: function(response) {
+                // Here you have to update your view in order to show the changes
+                // This is an example code
+                $("#input").val(response.newValue);
+            }
+          }); -->
+</body>
+</html>
+

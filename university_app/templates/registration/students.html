@@ -1,0 +1,50 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css\style.css' %}">
+    </head>
+    <body>
+        <table>
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Zip Code</th>
+                <th>Phone Number</th>
+                <th>Major</th>
+                <th>GPA</th>
+                <th>Graduation Date</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for student in student2 %}
+              <tr>
+                <td>{{ student.first_name }}</td>
+                <td>{{ student.last_name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.date_of_birth }}</td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.city }}</td>
+                <td>{{ student.zip_code }}</td>
+                <td>{{ student.phone_number }}</td>
+                <td>{{ student.major }}</td>
+                <td>{{ student.gpa }}</td>
+                <td>{{ student.graduation_date }}</td>
+                <td>
+                  <form action="{% url 'delete_student' student.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>        
+    </body>
+</html>
+

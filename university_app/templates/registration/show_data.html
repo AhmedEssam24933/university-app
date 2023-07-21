@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "button" onclick = 'getFaculty()' value = "Show Faculties">  
+    <h2 id="show"></h2><br>
+    <input type="number" id="myInput" placeholder="pk">
+    <input type = "button" onclick = 'getSpecificFaculty()' value = "بحث">  
+    <h2 id="show-specific-faculty"></h2>
+    <form action='delete_faculty\' method="POST">
+        {% csrf_token %} 
+        <input type="number" id="pk" name="pk" placeholder="pk">
+        <button type="submit" class="btn btn-primary">حذف</button>
+    </form>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script> 
+
+    <h2>Faculty Data</h2>
+    <h3>{% for i in faculty2 %}</h3>
+    <h3>{{ i }}</h3>
+    <h3>{% endfor %}</h3>
+    <hr>
+
+
+
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script> 
+</body>
+</html>

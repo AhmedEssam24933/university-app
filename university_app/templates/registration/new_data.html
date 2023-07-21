@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="my-div">
+    <h2>New data added</h2>
+    <h2>{% for i in student %}</h2>
+    <P>{{i.first_name}}</P>
+    <P>{{i.last_name}}</P>
+    <P>{{i.email}}</P>
+    <P>{{i.date_of_birth}}</P>
+    <P>{{i.address}}</P>
+    <P>{{i.city}}</P>
+    <P>{{i.zip_code}}</P>
+    <P>{{i.phone_number}}</P>
+    <P>{{i.major}}</P>
+    <P>{{i.gpa}}</P>
+    <P>{{i.graduation_date}}</P>
+    <hr>
+    <p>{% endfor %}</p>
+    </div>
+</body>
+</html>
